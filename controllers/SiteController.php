@@ -8,6 +8,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\MotionEvents;
 
 class SiteController extends Controller
 {
@@ -46,7 +47,8 @@ class SiteController extends Controller
     }
 
     public function actionIndex() {
-        var_dump($_SERVER['REMOTE_ADDR']);
+//        var_dump(get_class(Yii::$app->mongodb->get));
+        var_dump(MotionEvents::findOne([]));
         return $this->render('index');
     }
 

@@ -29,3 +29,5 @@ phpunit.phar
 *.log
 composer.lock
 runtime
+
+#config/*_local.php

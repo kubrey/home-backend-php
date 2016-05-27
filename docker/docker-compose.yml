@@ -1,0 +1,36 @@
+web:
+    image: nginx:latest
+    ports:
+        - "8080:80"
+    volumes:
+        - ./dock.loc:/var/www/dockloc
+        - ./vhost.conf:/etc/nginx/conf.d/dockloc.conf
+    links:
+        - php
+php:
+    image: kubrey/php56
+    ports:
+        - 9000:9000
+    volumes:
+        - ./dock.loc:/var/www/dockloc
+    environment:
+        MONGO_HOST: mongo
+        MONGO_PORT: 27017
+    links:
+        - db
+        - mongodb
+db:
+    image: sameersbn/mysql
+    volumes:
+        - ./mysql/:/var/lib/mysql
+    environment:
+        - DB_NAME=mymotion
+        - DB_USER=root
+        - DB_PASS=dsotm1973
+mongodb:
+    image: mongo:3.0
+    command: mongod --smallfiles --quiet --logpath=/dev/null
+    ports:
+        - 37017:27017
+    volumes:
+        - ./mongodb:/data/db

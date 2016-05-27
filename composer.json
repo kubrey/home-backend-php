@@ -18,7 +18,8 @@
         "yiisoft/yii2": ">=2.0.5",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
-        "kubrey/geoservice": "^1.6"
+        "kubrey/geoservice": "^1.6",
+        "yiisoft/yii2-mongodb": "^2.0"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
