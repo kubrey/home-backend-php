@@ -9,6 +9,9 @@ $config = [
     'id' => 'basic-console',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'controllerMap' => [
+        'mongodb-migrate' => 'yii\mongodb\console\controllers\MigrateController'
+    ],
     'controllerNamespace' => 'app\commands',
     'components' => [
         'cache' => [
@@ -23,6 +26,7 @@ $config = [
             ],
         ],
         'db' => $db,
+        'mongodb' => require(__DIR__ . (YII_ENV === 'dev' ? '/db_local.php' : '/db.php')),
     ],
     'params' => $params,
     /*

@@ -48,7 +48,7 @@ class SiteController extends Controller
 
     public function actionIndex() {
 //        var_dump(get_class(Yii::$app->mongodb->get));
-        var_dump(MotionEvents::findOne([]));
+        MotionEvents::findOne([]);
         return $this->render('index');
     }
 
